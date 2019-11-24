@@ -27,6 +27,7 @@ func init() {
 }
 
 func (e *Enumeration) newAddress(req *requests.AddrRequest) {
+	defer fmt.Println("New Address=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 	if req == nil || req.Address == "" {
 		return
 	}

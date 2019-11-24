@@ -395,7 +395,7 @@ func (e *Enumeration) setupEventBus() {
 	// 更多的        这个地方有更多的东西 等下来看吧
 	if !e.Config.Passive {
 		e.Bus.Subscribe(requests.NameResolvedTopic, e.newResolvedName)
-
+		fmt.Println("在  setupEventBus 完成来 newAddress")
 		e.Bus.Subscribe(requests.NewAddrTopic, e.newAddress)
 		e.Bus.Subscribe(requests.NewASNTopic, e.updateASNCache)
 	}
@@ -429,7 +429,7 @@ func (e *Enumeration) cleanEventBus() {
 
 	if !e.Config.Passive {
 		e.Bus.Unsubscribe(requests.NameResolvedTopic, e.newResolvedName)
-
+		fmt.Println("cmcmcmcmmcmcmcm       NewAddress")
 		e.Bus.Unsubscribe(requests.NewAddrTopic, e.newAddress)
 		e.Bus.Unsubscribe(requests.NewASNTopic, e.updateASNCache)
 	}
