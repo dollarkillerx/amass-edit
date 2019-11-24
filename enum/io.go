@@ -204,7 +204,7 @@ func (e *Enumeration) queueLog(msg string) {
 
 // 这里注意  没有查询到打印日志
 func (e *Enumeration) writeLogs() {
-	fmt.Println("===============writeLogs #####")
+	fmt.Println("===============")
 
 	for {
 		// 数据
@@ -217,6 +217,6 @@ func (e *Enumeration) writeLogs() {
 			e.Config.Log.Print(msg.(string))
 		}
 	}
-	fmt.Println("===============End   writeLogs #####")
+	fmt.Println("===============End   ###")
 
 }

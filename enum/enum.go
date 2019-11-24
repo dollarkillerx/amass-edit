@@ -92,7 +92,7 @@ type Enumeration struct {
 func NewEnumeration(sys services.System) *Enumeration {
 	e := &Enumeration{
 		Config:   config.NewConfig(),
-		Bus:      eb.NewEventBus(),
+		Bus:      eb.NewEventBus(),  // 初始化消息总线
 		Sys:      sys,
 		altQueue: new(queue.Queue),
 		filters: &Filters{
@@ -188,11 +188,11 @@ func (e *Enumeration) Start() error {
 	ctx = context.WithValue(ctx, requests.ContextConfig, e.Config)
 	e.ctx = context.WithValue(ctx, requests.ContextEventBus, e.Bus)
 
-	// 消息总线
+	// 设置消息总线信道
 	e.setupEventBus()
 
 	e.addrs = stringset.New()
-	go e.processAddresses()
+	go e.processAddresses()    //
 
 	// The enumeration will not terminate until all output has been processed
 	var wg sync.WaitGroup
@@ -251,17 +251,17 @@ loop:
 			// 2 秒一次
 		case <-twoSec.C:
 			// 这里在cli中打印 相关的域名信息
-			fmt.Println("write logs  ========")
+			//fmt.Println("write logs  ========")
 
 			e.writeLogs() // 打印从那里查询
-			fmt.Println("next phase！！！========")
+			//fmt.Println("next phase！！！========")
 
 			e.nextPhase() // 打印结果
 		// 每分钟打印 查询速度
 		case <-perMin.C:
-			fmt.Println("ns1s1s1s1s1s1s")
+			//fmt.Println("ns1s1s1s1s1s1s")
 			if !e.Config.Passive {
-				fmt.Println("s2s2s2s2s2s")
+				//fmt.Println("s2s2s2s2s2s")
 				remaining := e.DNSNamesRemaining()
 
 				e.Config.Log.Printf("Average DNS queries performed: %d/sec, DNS names queued: %d",
@@ -275,7 +275,7 @@ loop:
 	twoSec.Stop()
 	perMin.Stop()
 	cancel()
-	e.cleanEventBus()
+	e.cleanEventBus()   //  关闭消息总线
 	time.Sleep(2 * time.Second)
 	wg.Wait()
 	e.writeLogs()
@@ -284,6 +284,7 @@ loop:
 
 func (e *Enumeration) nextPhase() {
 	fmt.Println("===============NextPhase===============")
+	defer fmt.Println("===============NextPhase===============")
 	first := !e.startedBrute && !e.startedAlts
 	persec := e.DNSQueriesPerSec()
 	remaining := e.DNSNamesRemaining()
@@ -299,7 +300,7 @@ func (e *Enumeration) nextPhase() {
 	}
 
 	bruteReady := !e.Config.Passive && e.Config.BruteForcing && !e.startedBrute
-	altsReady := !e.Config.Passive && e.Config.Alterations && !e.startedAlts
+	altsReady := !e.Config.Passive && e.Config.Alterations && !e.startedAlts      //
 
 	if bruteReady {
 		e.startedBrute = true
@@ -313,14 +314,13 @@ func (e *Enumeration) nextPhase() {
 
 		e.startedAlts = true
 		// 注意
-		go e.performAlterations()
+		go e.performAlterations()   // 只会运行一次在程序末尾结束
 		e.Config.Log.Print("Starting DNS queries for altered names")
 		time.Sleep(30 * time.Second)
 	} else if inactive && persec < 50 {
 		// End the enumeration!
 		e.Done()
 	}
-	fmt.Println("===============End  NextPhase===============")
 
 }
 
@@ -384,6 +384,7 @@ func (e *Enumeration) updateLastActive(srv string) {
 
 // 目前以知 设置地点
 func (e *Enumeration) setupEventBus() {
+	// 初始化通道
 	e.Bus.Subscribe(requests.OutputTopic, e.sendOutput)
 	e.Bus.Subscribe(requests.LogTopic, e.queueLog)
 	e.Bus.Subscribe(requests.SetActiveTopic, e.updateLastActive)
@@ -391,6 +392,7 @@ func (e *Enumeration) setupEventBus() {
 
 	e.Bus.Subscribe(requests.NewNameTopic, e.newNameEvent)
 
+	// 更多的        这个地方有更多的东西 等下来看吧
 	if !e.Config.Passive {
 		e.Bus.Subscribe(requests.NameResolvedTopic, e.newResolvedName)
 

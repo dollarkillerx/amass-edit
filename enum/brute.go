@@ -91,7 +91,8 @@ func (e *Enumeration) bruteSendNewNames(req *requests.DNSRequest) {
 }
 
 func (e *Enumeration) performAlterations() {
-	fmt.Println("进入 performAlterations")
+	fmt.Println("进入 performAlterations >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+	defer 	fmt.Println("结束了 performAlterations <<<<<<<<<<<<<<<<<<<<<<<<<<")
 	curIdx := 0
 	maxIdx := 7
 	delays := []int{10, 25, 50, 75, 100, 150, 250, 500}

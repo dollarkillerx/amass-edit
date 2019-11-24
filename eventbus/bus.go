@@ -17,7 +17,7 @@ type pubReq struct {
 // EventBus handles sending and receiving events across Amass.
 type EventBus struct {
 	sync.Mutex
-	topics map[string][]reflect.Value
+	topics map[string][]reflect.Value   //  消息设置
 	max    semaphore.Semaphore
 	queue  *queue.Queue
 	done   chan struct{}
