@@ -192,7 +192,7 @@ func (e *Enumeration) Start() error {
 	e.setupEventBus()
 
 	e.addrs = stringset.New()
-	go e.processAddresses()    //
+	go e.processAddresses()    // dns扫描相关
 
 	// The enumeration will not terminate until all output has been processed
 	var wg sync.WaitGroup
