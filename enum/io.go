@@ -15,14 +15,15 @@ import (
 	"github.com/miekg/dns"
 )
 
+
+// 向以知库中查询       [cache]
 func (e *Enumeration) submitKnownNames(wg *sync.WaitGroup) {
 	defer wg.Done()
-
 	for _, g := range e.Sys.GraphDatabases() {
 		for _, enum := range g.EventList() {
 			var found bool
-
 			for _, domain := range g.EventDomains(enum) {
+
 				if e.Config.IsDomainInScope(domain) {
 					found = true
 					break
@@ -33,13 +34,17 @@ func (e *Enumeration) submitKnownNames(wg *sync.WaitGroup) {
 			}
 
 			for _, o := range g.GetOutput(enum) {
+				//fmt.Printf("o参数为   %v\n",o)
+
 				if e.Config.IsDomainInScope(o.Name) {
+					// 推送到总线上去
 					e.Bus.Publish(requests.NewNameTopic, &requests.DNSRequest{
 						Name:   o.Name,
 						Domain: o.Domain,
 						Tag:    requests.EXTERNAL,
 						Source: "Previous Enum",
 					})
+					//fmt.Printf("o参数为   %v\n",o.Name)
 				}
 			}
 		}
@@ -207,6 +212,8 @@ func (e *Enumeration) queueLog(msg string) {
 // 这里注意  没有查询到打印日志
 func (e *Enumeration) writeLogs() {
 	fmt.Println("===============")
+	defer 	fmt.Println("===============End   ###")
+
 
 	for {
 		// 数据
@@ -219,6 +226,5 @@ func (e *Enumeration) writeLogs() {
 			e.Config.Log.Print(msg.(string))
 		}
 	}
-	fmt.Println("===============End   ###")
 
 }

@@ -27,6 +27,7 @@ func (g *Graph) GetOutput(uuid string) []*requests.Output {
 		return results
 	}
 
+
 	var names []db.Node
 	for _, edge := range edges {
 		p, err := g.db.ReadProperties(edge.To, "type")

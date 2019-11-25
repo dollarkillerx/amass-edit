@@ -193,13 +193,13 @@ func (e *Enumeration) Start() error {
 	e.setupEventBus()
 
 	e.addrs = stringset.New()
-	go e.processAddresses()    // dns扫描相关
+	go e.processAddresses()    // dns扫描相关  [重点关注下]
 
 	// The enumeration will not terminate until all output has been processed
 	var wg sync.WaitGroup
 	wg.Add(3)
 	// Use all previously discovered names that are in scope
-	go e.submitKnownNames(&wg)    // 向圖數據庫中找到以知的存在
+	//go e.submitKnownNames(&wg)    // 向圖數據庫中找到以知的存在  (去掉完全不影响)
 	go e.submitProvidedNames(&wg) //
 	// 输出到管道中 amass/enum.go中的方法会写到日志中去
 	go e.processOutput(&wg) // 將信息寫入到日誌文件中去
@@ -252,7 +252,7 @@ loop:
 			// 2 秒一次
 		case <-twoSec.C:
 			// 这里在cli中打印 相关的域名信息
-			fmt.Println("write logs  ========")
+			//fmt.Println("write logs  ========")
 
 			e.writeLogs() // 打印从那里查询
 			//fmt.Println("next phase！！！========")
@@ -284,8 +284,8 @@ loop:
 }
 
 func (e *Enumeration) nextPhase() {
-	fmt.Println("===============NextPhase===============")
-	defer fmt.Println("===============NextPhase===============")
+	//fmt.Println("===============NextPhase===============")
+	//defer fmt.Println("===============NextPhase===============")
 	first := !e.startedBrute && !e.startedAlts
 	persec := e.DNSQueriesPerSec()
 	remaining := e.DNSNamesRemaining()

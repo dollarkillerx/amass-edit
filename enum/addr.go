@@ -27,7 +27,7 @@ func init() {
 }
 
 func (e *Enumeration) newAddress(req *requests.AddrRequest) {
-	defer fmt.Println("New Address=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+	//defer fmt.Println("New Address=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
 	if req == nil || req.Address == "" {
 		return
 	}
@@ -86,7 +86,7 @@ loop:
 			asn := e.ipSearch(req.Address)
 			if asn == nil {
 				// Query the data sources for ASN information related to this IP address
-				fmt.Println("进行查询。。。。。。")
+				fmt.Println("进行开放Dns查询。。。。。。")
 				e.asnRequestAllSources(&requests.ASNRequest{Address: req.Address})
 				time.Sleep(10 * time.Second)
 				checkSoon.Append(req)

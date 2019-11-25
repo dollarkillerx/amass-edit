@@ -34,7 +34,7 @@ func main() {
 
 
 	// Setup the most basic amass configuration
-	e.Config.AddDomain("dollarkiller.com")
+	e.Config.AddDomain("bilibilil.cf")
 	/**
 	 * AddDomain 做了两件事 配置来e.config 的 c.regexps  c.domains
 	 */
