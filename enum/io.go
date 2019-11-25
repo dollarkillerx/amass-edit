@@ -16,7 +16,7 @@ import (
 )
 
 
-// 向以知库中查询       [cache]
+// 向以知库中查询       用户第一次查询完毕 会写到图数据库中
 func (e *Enumeration) submitKnownNames(wg *sync.WaitGroup) {
 	defer wg.Done()
 	for _, g := range e.Sys.GraphDatabases() {
@@ -63,7 +63,9 @@ func (e *Enumeration) submitProvidedNames(wg *sync.WaitGroup) {
 				Source: "User Input",
 			})
 		}
+
 	}
+
 }
 
 func (e *Enumeration) namesFromCertificates(addr string) {
@@ -76,6 +78,7 @@ func (e *Enumeration) namesFromCertificates(addr string) {
 					Tag:    requests.CERT,
 					Source: "Active Cert",
 				})
+				fmt.Printf("name:%v   ccc",name)
 			}
 		}
 	}
@@ -211,9 +214,6 @@ func (e *Enumeration) queueLog(msg string) {
 
 // 这里注意  没有查询到打印日志
 func (e *Enumeration) writeLogs() {
-	fmt.Println("===============")
-	defer 	fmt.Println("===============End   ###")
-
 
 	for {
 		// 数据

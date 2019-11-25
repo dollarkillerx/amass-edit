@@ -32,7 +32,6 @@ func main() {
 		}
 	}()
 
-
 	// Setup the most basic amass configuration
 	e.Config.AddDomain("bilibilil.cf")
 	/**

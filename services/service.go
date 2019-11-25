@@ -171,6 +171,7 @@ func (bas *BaseService) RequestLen() int {
 }
 
 // DNSRequest adds the request provided by the parameter to the service request channel.
+// 重点 需求通道 等待相应
 func (bas *BaseService) DNSRequest(ctx context.Context, req *requests.DNSRequest) {
 	bas.queueRequest(bas.service.OnDNSRequest, ctx, req)
 }

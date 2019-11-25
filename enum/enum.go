@@ -197,34 +197,38 @@ func (e *Enumeration) Start() error {
 
 	// The enumeration will not terminate until all output has been processed
 	var wg sync.WaitGroup
-	wg.Add(3)
+	wg.Add(1)
 	// Use all previously discovered names that are in scope
-	//go e.submitKnownNames(&wg)    // 向圖數據庫中找到以知的存在  (去掉完全不影响)
-	go e.submitProvidedNames(&wg) //
+	//go e.submitKnownNames(&wg)    // 向圖數據庫中找到以知的存在   (去掉不影响整个系统)
+	//go e.submitProvidedNames(&wg) // 没用                     (去掉不影响整个系统)
 	// 输出到管道中 amass/enum.go中的方法会写到日志中去
 	go e.processOutput(&wg) // 將信息寫入到日誌文件中去
 
 	// 如果用户设置了超时控制
-	if e.Config.Timeout > 0 {
-		time.AfterFunc(time.Duration(e.Config.Timeout)*time.Minute, func() {
-			e.Config.Log.Printf("Enumeration exceeded provided timeout")
-			e.Done()
-		})
-	}
+	//if e.Config.Timeout > 0 {
+	//	time.AfterFunc(time.Duration(e.Config.Timeout)*time.Minute, func() {
+	//		e.Config.Log.Printf("Enumeration exceeded provided timeout")
+	//		e.Done()
+	//	})
+	//}
 
 	// Release all the domain names specified in the configuration
 	e.srcsLock.Lock()
+
 	// Put in requests for all the ASNs specified in the configuration
+
 	for _, src := range e.Sys.DataSources() {
 		if !e.srcs.Has(src.String()) {
 			continue
 		}
 
 		for _, asn := range e.Config.ASNs {
+			//ASN信息是啥阿
 			src.ASNRequest(e.ctx, &requests.ASNRequest{ASN: asn})
 		}
 	}
 
+	// 放入 domain信息 如果没有就玩玩
 	for _, src := range e.Sys.DataSources() {
 		if !e.srcs.Has(src.String()) {
 			continue
@@ -239,6 +243,7 @@ func (e *Enumeration) Start() error {
 		}
 	}
 	e.srcsLock.Unlock()
+
 
 	twoSec := time.NewTicker(2 * time.Second)
 	perMin := time.NewTicker(time.Minute)
@@ -275,12 +280,16 @@ loop:
 
 	twoSec.Stop()
 	perMin.Stop()
-	cancel()
+	cancel()   // 通过ctx来关闭所有
 	e.cleanEventBus()   //  关闭消息总线
 	time.Sleep(2 * time.Second)
 	wg.Wait()
-	e.writeLogs()
+	e.writeLogs()       // 打印最终
 	return nil
+
+	/**
+	 * 最后两个没有看      e.nextPhase()          go e.processAddresses()
+	 */
 }
 
 func (e *Enumeration) nextPhase() {
