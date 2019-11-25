@@ -78,6 +78,8 @@ func (e *Enumeration) namesFromCertificates(addr string) {
 
 // 寫入日誌通道
 func (e *Enumeration) processOutput(wg *sync.WaitGroup) {
+	fmt.Println("进行了写日志   。。。。。。。。。。。。")
+	defer fmt.Println("进行了写日志   。。。。。。。。。。。。 End")
 	defer wg.Done()
 	// 如果寫入完畢就關閉通道防止死鎖
 	defer close(e.Output)

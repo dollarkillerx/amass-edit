@@ -7,14 +7,6 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
-	"io"
-	"io/ioutil"
-	"log"
-	"net"
-	"regexp"
-	"strings"
-	"sync"
-
 	"github.com/OWASP/Amass/v3/format"
 	"github.com/OWASP/Amass/v3/net/dns"
 	"github.com/OWASP/Amass/v3/net/http"
@@ -24,6 +16,13 @@ import (
 	"github.com/go-ini/ini"
 	"github.com/gobuffalo/packr/v2"
 	"github.com/google/uuid"
+	"io"
+	"io/ioutil"
+	"log"
+	"net"
+	"regexp"
+	"strings"
+	"sync"
 )
 
 const (
@@ -185,6 +184,7 @@ type APIKey struct {
 
 // NewConfig returns a default configuration object.
 func NewConfig() *Config {
+
 	c := &Config{
 		UUID:          uuid.New(),
 		Log:           log.New(ioutil.Discard, "", 0),

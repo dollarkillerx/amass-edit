@@ -34,16 +34,20 @@ type LocalSystem struct {
 
 // NewLocalSystem returns an initialized LocalSystem object.
 func NewLocalSystem(c *config.Config) (*LocalSystem, error) {
+
 	if err := c.CheckSettings(); err != nil {
 		return nil, err
 	}
 
-	pool := resolvers.SetupResolverPool(
+
+	pool := resolvers.SetupResolverPool(   // 此处有网络请求
 		c.Resolvers,
 		c.ScoreResolvers,
 		c.MonitorResolverRate,
 		c.Log,
 	)
+
+
 	if pool == nil {
 		return nil, errors.New("The system was unable to build the pool of resolvers")
 	}
@@ -67,8 +71,10 @@ func NewLocalSystem(c *config.Config) (*LocalSystem, error) {
 
 	// Add all the data sources that successfully start to the list
 	for _, src := range GetAllSources(sys) {
-		sys.AddAndStart(src)
+		sys.AddAndStart(src)   // 此处耗时严重
+		//fmt.Println(src)
 	}
+	//defer os.Exit(1)
 
 	return sys, nil
 }

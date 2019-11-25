@@ -14,6 +14,7 @@ func main() {
 	// Seed the default pseudo-random number generator
 	rand.Seed(time.Now().UTC().UnixNano())
 
+	// 进行了网络请求  本查询耗时3s    初始化dns解析pool等基础服务
 	sys, err := services.NewLocalSystem(config.NewConfig())
 	if err != nil {
 		return
@@ -31,12 +32,13 @@ func main() {
 		}
 	}()
 
+
 	// Setup the most basic amass configuration
 	e.Config.AddDomain("dollarkiller.com")
 	/**
 	 * AddDomain 做了两件事 配置来e.config 的 c.regexps  c.domains
 	 */
 
-
+	fmt.Println("start app")
 	e.Start()
 }

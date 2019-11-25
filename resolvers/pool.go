@@ -48,6 +48,7 @@ type ResolverPool struct {
 
 // SetupResolverPool initializes a ResolverPool with the type of resolvers indicated by the parameters.
 func SetupResolverPool(addrs []string, scoring, ratemon bool, log *log.Logger) *ResolverPool {
+	//addrs dnslist
 	if len(addrs) <= 0 {
 		return nil
 	}
@@ -66,7 +67,7 @@ func SetupResolverPool(addrs []string, scoring, ratemon bool, log *log.Logger) *
 	finished := make(chan Resolver, 100)
 	for _, addr := range addrs {
 		go func(ip string, ch chan Resolver) {
-			if n := NewBaseResolver(ip); n != nil {
+			if n := NewBaseResolver(ip); n != nil {   // 初始化一个dns解析器
 				ch <- n
 				return
 			}
@@ -78,6 +79,7 @@ func SetupResolverPool(addrs []string, scoring, ratemon bool, log *log.Logger) *
 	var resolvers []Resolver
 	t := time.NewTimer(5 * time.Second)
 	defer t.Stop()
+
 loop:
 	for i := 0; i < l; i++ {
 		select {

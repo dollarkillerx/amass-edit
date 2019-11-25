@@ -162,6 +162,7 @@ func (e *Enumeration) Start() error {
 	srcs.InsertMany(e.Config.SourceFilter.Sources...)
 	// 装载配置文件 把查询api server 写入到srcs的set中
 	for _, src := range e.Sys.DataSources() {
+		//fmt.Println(src)
 		e.srcs.Insert(src.String())
 	}
 	//os.Exit(0)
@@ -251,7 +252,7 @@ loop:
 			// 2 秒一次
 		case <-twoSec.C:
 			// 这里在cli中打印 相关的域名信息
-			//fmt.Println("write logs  ========")
+			fmt.Println("write logs  ========")
 
 			e.writeLogs() // 打印从那里查询
 			//fmt.Println("next phase！！！========")
