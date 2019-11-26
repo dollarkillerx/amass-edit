@@ -1,0 +1,46 @@
+FOC:    Querying ThreatCrowd for bilibilil.cf subdomains  >>> 
+FOC:    Querying BufferOver for bilibilil.cf subdomains  >>> 
+FOC:    Querying Censys for bilibilil.cf subdomains  >>> 
+FOC:    Querying Yahoo for bilibilil.cf subdomains  >>> 
+FOC:    Querying Baidu for bilibilil.cf subdomains  >>> 
+FOC:    Querying URLScan for bilibilil.cf subdomains  >>> 
+FOC:    Querying CommonCrawl for bilibilil.cf subdomains  >>> 
+FOC:    Querying CertSpotter for bilibilil.cf subdomains  >>> 
+FOC:    Querying Spyse for bilibilil.cf subdomains  >>> 
+FOC:    Querying VirusTotal for bilibilil.cf subdomains  >>> 
+FOC:    Querying Ask for bilibilil.cf subdomains  >>> 
+FOC:    Querying Sublist3rAPI for bilibilil.cf subdomains  >>> 
+FOC:    Querying Bing for bilibilil.cf subdomains  >>> 
+FOC:    Querying ViewDNS for bilibilil.cf subdomains  >>> 
+FOC:    Querying Crtsh for bilibilil.cf subdomains  >>> 
+FOC:    Querying DNSTable for bilibilil.cf subdomains  >>> 
+FOC:    Querying SiteDossier for bilibilil.cf subdomains  >>> 
+FOC:    Querying Dogpile for bilibilil.cf subdomains  >>> 
+FOC:    Querying Riddler for bilibilil.cf subdomains  >>> 
+FOC:    Querying PTRArchive for bilibilil.cf subdomains  >>> 
+FOC:    Querying Robtex for bilibilil.cf subdomains  >>> 
+FOC:    Querying Google for bilibilil.cf subdomains  >>> 
+FOC:    Querying Exalead for bilibilil.cf subdomains  >>> 
+FOC:    Querying GoogleCT for bilibilil.cf subdomains  >>> 
+FOC:    Querying IPv4Info for bilibilil.cf subdomains  >>> 
+FOC:    Querying Mnemonic for bilibilil.cf subdomains  >>> 
+FOC:    Querying Netcraft for bilibilil.cf subdomains  >>> 
+FOC:    Querying HackerTarget for bilibilil.cf subdomains  >>> 
+FOC:    Querying DNSDB for bilibilil.cf subdomains  >>> 
+FOC:    Querying HackerOne for bilibilil.cf subdomains  >>> 
+FOC:    Querying Entrust for bilibilil.cf subdomains  >>> 
+FOC:    Querying Pastebin for bilibilil.cf subdomains  >>> 
+FOC:    Querying DNSDumpster for bilibilil.cf subdomains  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-43-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    ThreatCrowd: https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=bilibilil.cf: Get https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=bilibilil.cf: (anonymous): Line 1:953 Illegal return statement  >>> 
+FOC:    BufferOver: https://dns.bufferover.run/dns?q=.bilibilil.cf: Get https://dns.bufferover.run/dns?q=.bilibilil.cf: (anonymous): Line 1:1085 Illegal return statement  >>> 
+FOC:    DNS: Resolver: g.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    DNSDumpster: https://dnsdumpster.com/: Failed to obtain the CSRF token  >>> 
+FOC:    DNS: Resolver: bt1.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    DNS: Resolver: www.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    DNS: Resolver: bt2.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    IPv4Info: : Get : unsupported protocol scheme ""  >>> 
+FOC:    DNS: Resolver: bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    ViewDNS: https://viewdns.info/iphistory/?domain=bilibilil.cf: 403 Forbidden  >>> 
+FOC:    DNS: Resolver: bt1.bilibilil.cf type TXT returned 0 results  >>> 
+FOC:    DNS: Resolver: www.bilibilil.cf type TXT returned 0 results  >>> 
