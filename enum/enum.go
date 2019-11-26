@@ -92,7 +92,7 @@ type Enumeration struct {
 func NewEnumeration(sys services.System) *Enumeration {
 	e := &Enumeration{
 		Config:   config.NewConfig(),
-		Bus:      eb.NewEventBus(),  // 初始化消息总线
+		Bus:      eb.NewEventBus(), // 初始化消息总线
 		Sys:      sys,
 		altQueue: new(queue.Queue),
 		filters: &Filters{
@@ -174,7 +174,7 @@ func (e *Enumeration) Start() error {
 	e.srcsLock.Unlock()
 
 	// Setup the DNS name alteration objects
-	e.markovModel = alts.NewMarkovModel(3)  // 初始化dns生成模型  设在训练次数为3
+	e.markovModel = alts.NewMarkovModel(3) // 初始化dns生成模型  设在训练次数为3
 	e.altState = alts.NewState(e.Config.AltWordlist)
 	e.altState.MinForWordFlip = e.Config.MinForWordFlip
 	e.altState.EditDistance = e.Config.EditDistance
@@ -193,7 +193,7 @@ func (e *Enumeration) Start() error {
 	e.setupEventBus()
 
 	e.addrs = stringset.New()
-	go e.processAddresses()    // dns扫描相关  [重点关注下]
+	go e.processAddresses() // dns扫描相关  [重点关注下]
 
 	// The enumeration will not terminate until all output has been processed
 	var wg sync.WaitGroup
@@ -242,49 +242,51 @@ func (e *Enumeration) Start() error {
 			})
 		}
 	}
+	//fmt.Println(len(e.Config.Domains()))
+	//os.Exit(1)
+
 	e.srcsLock.Unlock()
 
+//	twoSec := time.NewTicker(2 * time.Second)
+//	perMin := time.NewTicker(time.Minute)
+//loop:
+//	for {
+//		select {
+//		// 检测是否关闭
+//		case <-e.done:
+//			fmt.Println("停止了")
+//			break loop
+//			// 2 秒一次
+//		case <-twoSec.C:
+//			// 这里在cli中打印 相关的域名信息
+//			//fmt.Println("write logs  ========")
+//
+//			//e.writeLogs() // 打印从那里查询
+//			//fmt.Println("next phase！！！========")
+//
+//			//e.nextPhase() // 打印结果
+//		// 每分钟打印 查询速度
+//		case <-perMin.C:
+//			//fmt.Println("ns1s1s1s1s1s1s")
+//			//if !e.Config.Passive {
+//			//	//fmt.Println("s2s2s2s2s2s")
+//			//	remaining := e.DNSNamesRemaining()
+//			//
+//			//	e.Config.Log.Printf("Average DNS queries performed: %d/sec, DNS names queued: %d",
+//			//		e.DNSQueriesPerSec(), remaining)
+//			//
+//			//	e.clearPerSec()
+//			//}
+//		}
+//	}
 
-	twoSec := time.NewTicker(2 * time.Second)
-	perMin := time.NewTicker(time.Minute)
-loop:
-	for {
-		select {
-		// 检测是否关闭
-		case <-e.done:
-			fmt.Println("停止了")
-			break loop
-			// 2 秒一次
-		case <-twoSec.C:
-			// 这里在cli中打印 相关的域名信息
-			//fmt.Println("write logs  ========")
-
-			e.writeLogs() // 打印从那里查询
-			//fmt.Println("next phase！！！========")
-
-			e.nextPhase() // 打印结果
-		// 每分钟打印 查询速度
-		case <-perMin.C:
-			//fmt.Println("ns1s1s1s1s1s1s")
-			if !e.Config.Passive {
-				//fmt.Println("s2s2s2s2s2s")
-				remaining := e.DNSNamesRemaining()
-
-				e.Config.Log.Printf("Average DNS queries performed: %d/sec, DNS names queued: %d",
-					e.DNSQueriesPerSec(), remaining)
-
-				e.clearPerSec()
-			}
-		}
-	}
-
-	twoSec.Stop()
-	perMin.Stop()
-	cancel()   // 通过ctx来关闭所有
-	e.cleanEventBus()   //  关闭消息总线
+	//twoSec.Stop()
+	//perMin.Stop()
+	cancel()          // 通过ctx来关闭所有
+	e.cleanEventBus() //  关闭消息总线
 	time.Sleep(2 * time.Second)
 	wg.Wait()
-	e.writeLogs()       // 打印最终
+	e.writeLogs() // 打印最终
 	return nil
 
 	/**
@@ -310,7 +312,7 @@ func (e *Enumeration) nextPhase() {
 	}
 
 	bruteReady := !e.Config.Passive && e.Config.BruteForcing && !e.startedBrute
-	altsReady := !e.Config.Passive && e.Config.Alterations && !e.startedAlts      //
+	altsReady := !e.Config.Passive && e.Config.Alterations && !e.startedAlts //
 
 	if bruteReady {
 		e.startedBrute = true
@@ -324,7 +326,7 @@ func (e *Enumeration) nextPhase() {
 
 		e.startedAlts = true
 		// 注意
-		go e.performAlterations()   // 只会运行一次在程序末尾结束
+		go e.performAlterations() // 只会运行一次在程序末尾结束
 		e.Config.Log.Print("Starting DNS queries for altered names")
 		time.Sleep(30 * time.Second)
 	} else if inactive && persec < 50 {

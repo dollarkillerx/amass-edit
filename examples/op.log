@@ -1,46 +1,92 @@
 FOC:    Querying ThreatCrowd for bilibilil.cf subdomains  >>> 
+FOC:    Querying Sublist3rAPI for bilibilil.cf subdomains  >>> 
+FOC:    Querying Yahoo for bilibilil.cf subdomains  >>> 
+FOC:    Querying VirusTotal for bilibilil.cf subdomains  >>> 
+FOC:    Querying ViewDNS for bilibilil.cf subdomains  >>> 
+FOC:    Querying URLScan for bilibilil.cf subdomains  >>> 
+FOC:    Querying Spyse for bilibilil.cf subdomains  >>> 
+FOC:    Querying Dogpile for bilibilil.cf subdomains  >>> 
+FOC:    Querying HackerTarget for bilibilil.cf subdomains  >>> 
+FOC:    Querying Exalead for bilibilil.cf subdomains  >>> 
+FOC:    Querying DNSDumpster for bilibilil.cf subdomains  >>> 
+FOC:    Querying HackerOne for bilibilil.cf subdomains  >>> 
+FOC:    Querying DNSDB for bilibilil.cf subdomains  >>> 
+FOC:    Querying Entrust for bilibilil.cf subdomains  >>> 
+FOC:    Querying Mnemonic for bilibilil.cf subdomains  >>> 
+FOC:    Querying GoogleCT for bilibilil.cf subdomains  >>> 
+FOC:    Querying Google for bilibilil.cf subdomains  >>> 
+FOC:    Querying Pastebin for bilibilil.cf subdomains  >>> 
+FOC:    Querying PTRArchive for bilibilil.cf subdomains  >>> 
+FOC:    Querying Bing for bilibilil.cf subdomains  >>> 
+FOC:    Querying Netcraft for bilibilil.cf subdomains  >>> 
+FOC:    Querying DNSTable for bilibilil.cf subdomains  >>> 
+FOC:    Querying IPv4Info for bilibilil.cf subdomains  >>> 
 FOC:    Querying BufferOver for bilibilil.cf subdomains  >>> 
 FOC:    Querying Censys for bilibilil.cf subdomains  >>> 
-FOC:    Querying Yahoo for bilibilil.cf subdomains  >>> 
 FOC:    Querying Baidu for bilibilil.cf subdomains  >>> 
-FOC:    Querying URLScan for bilibilil.cf subdomains  >>> 
 FOC:    Querying CommonCrawl for bilibilil.cf subdomains  >>> 
-FOC:    Querying CertSpotter for bilibilil.cf subdomains  >>> 
-FOC:    Querying Spyse for bilibilil.cf subdomains  >>> 
-FOC:    Querying VirusTotal for bilibilil.cf subdomains  >>> 
 FOC:    Querying Ask for bilibilil.cf subdomains  >>> 
-FOC:    Querying Sublist3rAPI for bilibilil.cf subdomains  >>> 
-FOC:    Querying Bing for bilibilil.cf subdomains  >>> 
-FOC:    Querying ViewDNS for bilibilil.cf subdomains  >>> 
-FOC:    Querying Crtsh for bilibilil.cf subdomains  >>> 
-FOC:    Querying DNSTable for bilibilil.cf subdomains  >>> 
-FOC:    Querying SiteDossier for bilibilil.cf subdomains  >>> 
-FOC:    Querying Dogpile for bilibilil.cf subdomains  >>> 
+FOC:    Querying CertSpotter for bilibilil.cf subdomains  >>> 
 FOC:    Querying Riddler for bilibilil.cf subdomains  >>> 
-FOC:    Querying PTRArchive for bilibilil.cf subdomains  >>> 
 FOC:    Querying Robtex for bilibilil.cf subdomains  >>> 
-FOC:    Querying Google for bilibilil.cf subdomains  >>> 
-FOC:    Querying Exalead for bilibilil.cf subdomains  >>> 
-FOC:    Querying GoogleCT for bilibilil.cf subdomains  >>> 
-FOC:    Querying IPv4Info for bilibilil.cf subdomains  >>> 
-FOC:    Querying Mnemonic for bilibilil.cf subdomains  >>> 
-FOC:    Querying Netcraft for bilibilil.cf subdomains  >>> 
-FOC:    Querying HackerTarget for bilibilil.cf subdomains  >>> 
-FOC:    Querying DNSDB for bilibilil.cf subdomains  >>> 
-FOC:    Querying HackerOne for bilibilil.cf subdomains  >>> 
-FOC:    Querying Entrust for bilibilil.cf subdomains  >>> 
-FOC:    Querying Pastebin for bilibilil.cf subdomains  >>> 
-FOC:    Querying DNSDumpster for bilibilil.cf subdomains  >>> 
-FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-43-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
-FOC:    ThreatCrowd: https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=bilibilil.cf: Get https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=bilibilil.cf: (anonymous): Line 1:953 Illegal return statement  >>> 
-FOC:    BufferOver: https://dns.bufferover.run/dns?q=.bilibilil.cf: Get https://dns.bufferover.run/dns?q=.bilibilil.cf: (anonymous): Line 1:1085 Illegal return statement  >>> 
-FOC:    DNS: Resolver: g.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    Querying SiteDossier for bilibilil.cf subdomains  >>> 
+FOC:    Querying Crtsh for bilibilil.cf subdomains  >>> 
+FOC:    ViewDNS: https://viewdns.info/iphistory/?domain=bilibilil.cf: 403 Forbidden  >>> 
+FOC:    BufferOver: https://dns.bufferover.run/dns?q=.bilibilil.cf: Get https://dns.bufferover.run/dns?q=.bilibilil.cf: (anonymous): Line 1:982 Illegal return statement  >>> 
 FOC:    DNSDumpster: https://dnsdumpster.com/: Failed to obtain the CSRF token  >>> 
 FOC:    DNS: Resolver: bt1.bilibilil.cf type CNAME returned 0 results  >>> 
 FOC:    DNS: Resolver: www.bilibilil.cf type CNAME returned 0 results  >>> 
-FOC:    DNS: Resolver: bt2.bilibilil.cf type CNAME returned 0 results  >>> 
-FOC:    IPv4Info: : Get : unsupported protocol scheme ""  >>> 
+FOC:    SiteDossier: http://www.sitedossier.com/parentdomain/bilibilil.cf: 404 No data available  >>> 
+FOC:    DNS: Resolver: g.bilibilil.cf type CNAME returned 0 results  >>> 
 FOC:    DNS: Resolver: bilibilil.cf type CNAME returned 0 results  >>> 
-FOC:    ViewDNS: https://viewdns.info/iphistory/?domain=bilibilil.cf: 403 Forbidden  >>> 
+FOC:    DNS: Resolver: bt2.bilibilil.cf type CNAME returned 0 results  >>> 
 FOC:    DNS: Resolver: bt1.bilibilil.cf type TXT returned 0 results  >>> 
+FOC:    ThreatCrowd: https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=bilibilil.cf: Get https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=bilibilil.cf: (anonymous): Line 1:934 Illegal return statement  >>> 
+FOC:    DNS: Resolver: g.bilibilil.cf type TXT returned 0 results  >>> 
 FOC:    DNS: Resolver: www.bilibilil.cf type TXT returned 0 results  >>> 
+FOC:    DNS: Resolver: bt2.bilibilil.cf type TXT returned 0 results  >>> 
+FOC:    DNS: Resolver: www.bilibilil.cf type AAAA returned 0 results  >>> 
+FOC:    DNSDB: https://www.dnsdb.org/bilibilil.cf/: Get https://www.dnsdb.org/bilibilil.cf/: dial tcp 192.64.147.171:443: connect: connection refused  >>> 
+FOC:    DNS: Resolver: bt2.bilibilil.cf type AAAA returned 0 results  >>> 
+FOC:    IPv4Info: : Get : unsupported protocol scheme ""  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-43-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    HackerTarget: https://api.hackertarget.com/aslookup/?q=2606:4700:30::681f:5c19: Failed to parse the response  >>> 
+FOC:    DNS: SPF record query error: bilibilil.cf: Resolver: bilibilil.cf type SPF returned 0 results  >>> 
+FOC:    DNS: Resolver: mx.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    DNS: Resolver: doug.ns.cloudflare.com type CNAME returned 0 results  >>> 
+FOC:    DNS: Resolver: amy.ns.cloudflare.com type CNAME returned 0 results  >>> 
+FOC:    DNS: Resolver: mx.bilibilil.cf type TXT returned 0 results  >>> 
+FOC:    DNS: Resolver: amy.ns.cloudflare.com type TXT returned 0 results  >>> 
+FOC:    DNS: Resolver: doug.ns.cloudflare.com type TXT returned 0 results  >>> 
+FOC:    RADb: https://rdap.arin.net/registry/ip/2606:4700:30::681f:5c19: Get https://rdap.arin.net/registry/ip/2606:4700:30::681f:5c19: read tcp 192.168.64.128:58644->199.5.26.160:443: read: connection reset by peer  >>> 
+FOC:    DNS: Resolver: mx.bilibilil.cf type AAAA returned 0 results  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-39-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-35-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    Robtex: https://freeapi.robtex.com/ipquery/157.245.230.122: Failed to parse the origin response: <nil>  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-30-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    DNS: Resolver: bt2.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    DNS: Resolver: g.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    DNS: Resolver: www.bilibilil.cf type CNAME returned 0 results  >>> 
+FOC:    DNS: Resolver: bt2.bilibilil.cf type TXT returned 0 results  >>> 
+FOC:    DNS: Resolver: www.bilibilil.cf type TXT returned 0 results  >>> 
+FOC:    DNS: Resolver: g.bilibilil.cf type TXT returned 0 results  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-26-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    DNS: Resolver: bt2.bilibilil.cf type AAAA returned 0 results  >>> 
+FOC:    DNS: Resolver: www.bilibilil.cf type AAAA returned 0 results  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-22-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    GoogleCT: https://www.google.com/transparencyreport/api/v3/httpsreport/ct/certsearch?domain=bilibilil.cf&include_expired=true&include_subdomains=true: Get https://www.google.com/transparencyreport/api/v3/httpsreport/ct/certsearch?domain=bilibilil.cf&include_expired=true&include_subdomains=true: dial tcp 216.58.200.228:443: connect: connection refused  >>> 
+FOC:    Google: https://www.google.com/search?bih=&biw=&btnG=Search&filter=0&gbv=1&hl=en&q=site%3Abilibilil.cf+-www.%2A&start=0: Get https://www.google.com/search?bih=&biw=&btnG=Search&filter=0&gbv=1&hl=en&q=site%3Abilibilil.cf+-www.%2A&start=0: dial tcp 216.58.200.228:443: connect: connection refused  >>> 
+FOC:    Yahoo: https://search.yahoo.com/search?b=1&bct=0&p=site%3Abilibilil.cf+-domain%3Awww.bilibilil.cf&pz=10&xargs=0: Get https://search.yahoo.com/search?b=1&bct=0&p=site%3Abilibilil.cf+-domain%3Awww.bilibilil.cf&pz=10&xargs=0: dial tcp 31.13.85.1:443: connect: connection refused  >>> 
+FOC:    Ask: https://www.ask.com/web?l=dir&o=0&page=0&q=site%3Abilibilil.cf+-www.bilibilil.cf&qo=pagination: Get https://www.ask.com/web?l=dir&o=0&page=0&q=site%3Abilibilil.cf+-www.bilibilil.cf&qo=pagination: dial tcp 66.220.147.44:443: connect: connection refused  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-18-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    HackerTarget: https://api.hackertarget.com/aslookup/?q=2400:cb00:2049:1::adf5:3a65: Failed to parse the response  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-13-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-09-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    Sublist3rAPI: https://api.sublist3r.com/search.php?domain=bilibilil.cf: Get https://api.sublist3r.com/search.php?domain=bilibilil.cf: net/http: request canceled (Client.Timeout exceeded while awaiting headers)  >>> 
+FOC:    Entrust: https://ctsearch.entrust.com/api/v1/certificates?domain=bilibilil.cf&exactMatch=false&fields=subjectO%2CissuerDN%2CsubjectDN%2CsignAlg%2Csan%2Csn%2CsubjectCNReversed%2Ccert&includeExpired=true&limit=5000: Get https://ctsearch.entrust.com/api/v1/certificates?domain=bilibilil.cf&exactMatch=false&fields=subjectO%2CissuerDN%2CsubjectDN%2CsignAlg%2Csan%2Csn%2CsubjectCNReversed%2Ccert&includeExpired=true&limit=5000: net/http: request canceled (Client.Timeout exceeded while awaiting headers)  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2019-04-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2018-51-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2018-47-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2018-43-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 500 Internal Server Error  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2018-39-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 404 Not Found  >>> 
+FOC:    CommonCrawl: https://index.commoncrawl.org/CC-MAIN-2018-34-index?filter=%3Dstatus%3A200&fl=url%2Cstatus&output=json&pageSize=2000&url=%2A.bilibilil.cf: 500 Internal Server Error  >>> 

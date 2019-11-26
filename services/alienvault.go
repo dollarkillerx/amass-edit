@@ -65,12 +65,13 @@ func (a *AlienVault) OnDNSRequest(ctx context.Context, req *requests.DNSRequest)
 		return
 	}
 
-	a.CheckRateLimit()
+	a.CheckRateLimit() // 速度限制  防止被封
+	// 写入日志信道
 	bus.Publish(requests.LogTopic, fmt.Sprintf("Querying %s for %s subdomains", a.String(), req.Domain))
-	a.executeDNSQuery(ctx, req)
+	a.executeDNSQuery(ctx, req) // dns 查询
 
 	a.CheckRateLimit()
-	a.executeURLQuery(ctx, req)
+	a.executeURLQuery(ctx, req) // url 查询
 }
 
 // OnWhoisRequest implements the Service interface.

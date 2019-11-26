@@ -25,7 +25,7 @@ type LocalSystem struct {
 
 	// The various services running within the system
 	coreSrvs    []Service
-	dataSources []Service
+	dataSources []Service // dns数据源
 
 	// Broadcast channel that indicates no further writes to the output channel
 	done              chan struct{}
@@ -39,14 +39,12 @@ func NewLocalSystem(c *config.Config) (*LocalSystem, error) {
 		return nil, err
 	}
 
-
-	pool := resolvers.SetupResolverPool(   // 此处有网络请求
+	pool := resolvers.SetupResolverPool( // 此处有网络请求
 		c.Resolvers,
 		c.ScoreResolvers,
 		c.MonitorResolverRate,
 		c.Log,
 	)
-
 
 	if pool == nil {
 		return nil, errors.New("The system was unable to build the pool of resolvers")
@@ -70,8 +68,9 @@ func NewLocalSystem(c *config.Config) (*LocalSystem, error) {
 	}
 
 	// Add all the data sources that successfully start to the list
+	// 注册查询数据源
 	for _, src := range GetAllSources(sys) {
-		sys.AddAndStart(src)   // 此处耗时严重
+		sys.AddAndStart(src) // 此处耗时严重
 		//fmt.Println(src)
 	}
 	//defer os.Exit(1)
@@ -109,6 +108,7 @@ func (l *LocalSystem) AddAndStart(srv Service) error {
 }
 
 // DataSources implements the System interface.
+// 获取数据源
 func (l *LocalSystem) DataSources() []Service {
 	l.Lock()
 	defer l.Unlock()

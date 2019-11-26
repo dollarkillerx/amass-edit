@@ -94,11 +94,12 @@ loop:
 			}
 
 			// Write the ASN information to the graph databases
-			// 将ASN信息写入图形数据库
+			// 将N信息写入图形数据库
 			e.dataMgr.ASNRequest(e.ctx, asn)
 
 			// Perform the reverse DNS sweep if the IP address is in scope
 			// 如果IP地址在范围内，请执行反向DNS扫描
+
 			if e.Config.IsDomainInScope(req.Domain) {
 				fmt.Println("进行反向dns扫描。。。。。")
 				if _, cidr, _ := net.ParseCIDR(asn.Prefix); cidr != nil {

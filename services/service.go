@@ -176,6 +176,7 @@ func (bas *BaseService) DNSRequest(ctx context.Context, req *requests.DNSRequest
 	bas.queueRequest(bas.service.OnDNSRequest, ctx, req)
 }
 
+// 发送dns请求
 // OnDNSRequest is called for a request that was queued via DNSRequest.
 func (bas *BaseService) OnDNSRequest(ctx context.Context, req *requests.DNSRequest) {
 	return

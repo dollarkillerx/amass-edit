@@ -67,7 +67,7 @@ func SetupResolverPool(addrs []string, scoring, ratemon bool, log *log.Logger) *
 	finished := make(chan Resolver, 100)
 	for _, addr := range addrs {
 		go func(ip string, ch chan Resolver) {
-			if n := NewBaseResolver(ip); n != nil {   // 初始化一个dns解析器
+			if n := NewBaseResolver(ip); n != nil { // 初始化一个dns解析器
 				ch <- n
 				return
 			}

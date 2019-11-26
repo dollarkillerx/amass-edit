@@ -22,3 +22,7 @@ func TestAlienVault(t *testing.T) {
 		t.Errorf("Found %d names, expected at least %d instead", result, expectedTest)
 	}
 }
+
+func TestGetAllSources(t *testing.T) {
+
+}

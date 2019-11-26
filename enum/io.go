@@ -6,6 +6,7 @@ package enum
 import (
 	"fmt"
 	"net"
+	"os"
 	"strings"
 	"sync"
 	"time"
@@ -14,7 +15,6 @@ import (
 	"github.com/OWASP/Amass/v3/requests"
 	"github.com/miekg/dns"
 )
-
 
 // 向以知库中查询       用户第一次查询完毕 会写到图数据库中
 func (e *Enumeration) submitKnownNames(wg *sync.WaitGroup) {
@@ -78,7 +78,7 @@ func (e *Enumeration) namesFromCertificates(addr string) {
 					Tag:    requests.CERT,
 					Source: "Active Cert",
 				})
-				fmt.Printf("name:%v   ccc",name)
+				fmt.Printf("name:%v   ccc", name)
 			}
 		}
 	}
@@ -212,8 +212,18 @@ func (e *Enumeration) queueLog(msg string) {
 	e.logQueue.Append(msg)
 }
 
+var ov sync.Once
+var file *os.File
+
 // 这里注意  没有查询到打印日志
 func (e *Enumeration) writeLogs() {
+	ov.Do(func() {
+		var i error
+		file, i = os.Create("op.log")
+		if i != nil {
+			panic(i)
+		}
+	})
 
 	for {
 		// 数据
@@ -221,6 +231,8 @@ func (e *Enumeration) writeLogs() {
 		if !ok {
 			break
 		}
+
+		fmt.Fprintf(file, "FOC:    %v  >>> \n", msg)
 
 		if e.Config.Log != nil {
 			e.Config.Log.Print(msg.(string))
